@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nythera Client</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -26,23 +26,20 @@ margin:auto;
 padding:40px 20px;
 }
 
-/* HERO */
+/* hero */
 
 .hero{
 display:flex;
 align-items:center;
-gap:20px;
+justify-content:space-between;
+gap:40px;
 margin-bottom:40px;
 }
 
-.logo{
-width:70px;
-}
-
 .hero-text h1{
-font-size:48px;
+font-size:64px;
 font-weight:800;
-letter-spacing:1px;
+letter-spacing:2px;
 }
 
 .hero-text span{
@@ -50,25 +47,31 @@ color:#9b6cff;
 }
 
 .hero-text p{
-margin-top:10px;
+margin-top:15px;
 color:#aaa;
 line-height:1.6;
-max-width:600px;
+max-width:520px;
+font-size:16px;
 }
 
+.logo{
+width:140px;
+}
+
+/* buttons */
+
 .buttons{
-margin-top:20px;
+margin-top:25px;
 display:flex;
-gap:10px;
+gap:12px;
 }
 
 .btn{
-padding:12px 20px;
-border-radius:10px;
+padding:13px 22px;
+border-radius:12px;
 text-decoration:none;
 font-weight:600;
 display:inline-block;
-font-size:14px;
 }
 
 .btn-primary{
@@ -81,7 +84,7 @@ border:1px solid #7c4dff;
 color:#b47cff;
 }
 
-/* sections */
+/* section */
 
 .section{
 background:#0b0d14;
@@ -107,7 +110,6 @@ gap:15px;
 background:#0f111a;
 padding:15px;
 border-radius:12px;
-font-size:14px;
 color:#bbb;
 }
 
@@ -127,7 +129,7 @@ text-align:center;
 }
 
 .price{
-font-size:28px;
+font-size:30px;
 font-weight:700;
 color:#9b6cff;
 margin:10px 0;
@@ -146,10 +148,14 @@ gap:20px;
 text-align:center;
 color:#666;
 margin-top:20px;
-font-size:13px;
 }
 
 @media(max-width:900px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
 
 .features{
 grid-template-columns:1fr;
@@ -164,11 +170,6 @@ flex-direction:column;
 text-align:center;
 }
 
-.hero{
-flex-direction:column;
-align-items:flex-start;
-}
-
 }
 </style>
 </head>
@@ -178,8 +179,6 @@ align-items:flex-start;
 <div class="container">
 
 <div class="hero">
-
-<img src="logo.png" class="logo">
 
 <div class="hero-text">
 <h1>NYTHERA <span>CLIENT</span></h1>
@@ -196,6 +195,9 @@ Nythera Client — приватный премиум клиент для Minecra
 </div>
 
 </div>
+
+<img src="logo.png" class="logo">
+
 </div>
 
 <div class="section">
