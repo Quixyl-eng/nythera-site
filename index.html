@@ -16,18 +16,18 @@ box-sizing:border-box;
 }
 
 body{
-font-family:Inter, sans-serif;
+font-family:Inter,sans-serif;
 background:#050507;
 color:white;
 
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-text-rendering: optimizeLegibility;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;
+text-rendering:optimizeLegibility;
 }
 
 .container{
-max-width:1150px;
-margin:0 auto;
+max-width:1100px;
+margin:auto;
 padding:40px 20px;
 }
 
@@ -41,27 +41,39 @@ margin-bottom:35px;
 .logo{
 display:flex;
 align-items:center;
-gap:14px;
+gap:12px;
 font-weight:800;
-font-size:24px;
-letter-spacing:1px;
+font-size:22px;
 }
 
 .logo img{
-width:46px;
-height:46px;
+width:44px;
+height:44px;
 border-radius:12px;
-box-shadow:0 0 20px rgba(255,255,255,0.2);
 }
 
-.buy-btn{
+.top-buttons{
+display:flex;
+gap:10px;
+}
+
+.btn{
+padding:10px 18px;
+border-radius:10px;
+font-weight:600;
+cursor:pointer;
+border:none;
+}
+
+.btn-white{
 background:white;
 color:black;
-padding:10px 20px;
-border-radius:10px;
-font-weight:700;
-text-decoration:none;
-font-size:15px;
+}
+
+.btn-outline{
+background:transparent;
+border:1px solid rgba(255,255,255,0.15);
+color:white;
 }
 
 .card{
@@ -81,53 +93,72 @@ margin-bottom:15px;
 .desc{
 color:#9ca3af;
 line-height:1.7;
-font-size:17px;
+font-size:16px;
 }
 
 h2{
-font-size:28px;
-margin-bottom:20px;
-}
-
-input{
-width:100%;
-background:#050507;
-border:1px solid rgba(255,255,255,0.08);
-padding:16px;
-border-radius:12px;
-color:white;
-margin-bottom:14px;
-font-family:Inter;
-font-size:15px;
-}
-
-button{
-background:white;
-border:none;
-padding:12px 22px;
-border-radius:10px;
-font-weight:700;
-cursor:pointer;
-font-size:15px;
+font-size:26px;
+margin-bottom:15px;
 }
 
 .price{
-font-size:20px;
-margin:8px 0;
+font-size:18px;
+margin:5px 0;
+}
+
+.buy-buttons{
+display:flex;
+gap:12px;
+margin-top:15px;
 }
 
 .features{
 margin-top:20px;
 color:#9ca3af;
 line-height:1.8;
-font-size:15px;
 }
 
 .footer{
 text-align:center;
 color:#666;
 margin-top:30px;
-font-size:14px;
+}
+
+/* popup */
+
+.modal{
+position:fixed;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background:rgba(0,0,0,0.7);
+display:none;
+align-items:center;
+justify-content:center;
+}
+
+.modal-box{
+background:#07070b;
+border:1px solid rgba(255,255,255,0.08);
+padding:30px;
+border-radius:16px;
+width:350px;
+}
+
+input{
+width:100%;
+padding:14px;
+margin-bottom:12px;
+background:#050507;
+border:1px solid rgba(255,255,255,0.08);
+border-radius:10px;
+color:white;
+font-family:Inter;
+}
+
+.modal.active{
+display:flex;
 }
 
 </style>
@@ -138,12 +169,17 @@ font-size:14px;
 <div class="container">
 
 <header>
+
 <div class="logo">
 <img src="logo.png">
 NYTHERA
 </div>
 
-<a class="buy-btn" href="https://t.me/nythera_gate_bot">Купить</a>
+<div class="top-buttons">
+<button class="btn btn-outline" onclick="openLogin()">Войти / Регистрация</button>
+<button class="btn btn-white" onclick="scrollToPrice()">Купить</button>
+</div>
+
 </header>
 
 
@@ -157,29 +193,14 @@ Nythera Client — приватный премиум чит-клиент для 
 красивые визуалы интерфейса и стабильную работу.
 
 Клиент имеет удобный ClickGUI интерфейс, высокую оптимизацию FPS,
-частые обновления и поддержку пользователей. Подходит как для PvP,
-так и для комфортной игры.
+частые обновления и поддержку пользователей.
 </div>
 
 </div>
 
 
 
-<div class="card">
-
-<h2>Активация ключа</h2>
-
-<input placeholder="Введите ключ">
-<input placeholder="Username">
-<input placeholder="Password">
-
-<button>Активировать</button>
-
-</div>
-
-
-
-<div class="card">
+<div class="card" id="price">
 
 <h2>Прайс</h2>
 
@@ -187,11 +208,10 @@ Nythera Client — приватный премиум чит-клиент для 
 <div class="price">Год — 289₽</div>
 <div class="price">Навсегда — 599₽</div>
 
-<br>
-
-<button onclick="window.location.href='https://t.me/nythera_gate_bot'">
-Купить через CryptoBot
-</button>
+<div class="buy-buttons">
+<button class="btn btn-white" onclick="openActivate()">Купить на сайте</button>
+<button class="btn btn-outline" onclick="window.location.href='https://t.me/nythera_gate_bot'">Купить в Telegram</button>
+</div>
 
 <div class="features">
 
@@ -204,19 +224,73 @@ Nythera Client — приватный премиум чит-клиент для 
 • Частые обновления клиента  
 • Привязку HWID к аккаунту  
 • Поддержку пользователей  
-• Доступ в Telegram канал  
 
 </div>
 
 </div>
-
-
 
 <div class="footer">
 © 2026 Nythera Client
 </div>
 
 </div>
+
+
+
+<!-- LOGIN -->
+
+<div class="modal" id="login">
+<div class="modal-box">
+
+<h2>Войти</h2>
+
+<input placeholder="Username">
+<input placeholder="Password">
+
+<button class="btn btn-white" style="width:100%">Войти</button>
+
+</div>
+</div>
+
+
+<!-- ACTIVATE -->
+
+<div class="modal" id="activate">
+<div class="modal-box">
+
+<h2>Активация ключа</h2>
+
+<input placeholder="Введите ключ">
+<input placeholder="Username">
+<input placeholder="Password">
+
+<button class="btn btn-white" style="width:100%">Активировать</button>
+
+</div>
+</div>
+
+
+<script>
+
+function openLogin(){
+document.getElementById("login").classList.add("active")
+}
+
+function openActivate(){
+document.getElementById("activate").classList.add("active")
+}
+
+window.onclick = function(e){
+if(e.target.classList.contains("modal")){
+e.target.classList.remove("active")
+}
+}
+
+function scrollToPrice(){
+document.getElementById("price").scrollIntoView({behavior:"smooth"})
+}
+
+</script>
 
 </body>
 </html>
