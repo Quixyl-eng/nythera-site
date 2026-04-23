@@ -3,106 +3,154 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Nythera Client</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
-body{
+
+*{
+box-sizing:border-box;
 margin:0;
-background:linear-gradient(180deg,#f4f6ff,#eef1ff);
-font-family:Arial, sans-serif;
-color:#111;
+padding:0;
+}
+
+body{
+font-family:Inter, sans-serif;
+background: radial-gradient(circle at top, #0b0b0f, #050507);
+color:white;
 }
 
 .container{
 max-width:1100px;
 margin:auto;
-padding:30px 20px;
+padding:40px 20px;
 }
 
-h1{
+/* HERO */
+
+.hero{
+display:flex;
+align-items:center;
+gap:30px;
+margin-bottom:30px;
+}
+
+.logo{
+width:110px;
+filter: drop-shadow(0 0 25px rgba(255,255,255,0.25));
+}
+
+.title{
 font-size:64px;
-margin:0;
+font-weight:900;
+letter-spacing:-2px;
+background: linear-gradient(180deg,#fff,#a8a8b3);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 .subtitle{
-color:#666;
-margin-bottom:20px;
+color:#9a9aa6;
+margin-top:6px;
 font-size:18px;
 }
 
-.section{
-background:white;
-padding:25px;
-border-radius:14px;
-box-shadow:0 5px 20px rgba(0,0,0,0.05);
-margin-bottom:20px;
+/* GLASS CARD */
+
+.card{
+background: rgba(255,255,255,0.03);
+backdrop-filter: blur(20px);
+border-radius:20px;
+padding:35px;
+margin-top:25px;
+border:1px solid rgba(255,255,255,0.07);
+box-shadow:0 10px 40px rgba(0,0,0,0.6);
 }
 
-.section h2{
-font-size:26px;
-margin:0 0 15px 0;
+.card h2{
+font-size:28px;
+margin-bottom:15px;
+}
+
+/* description */
+
+.desc{
+color:#bdbdc7;
+line-height:1.6;
+margin-bottom:20px;
 }
 
 .features{
-font-size:16px;
-line-height:1.6;
+columns:2;
+gap:40px;
+margin-top:15px;
 }
 
-.feature{
-margin-bottom:6px;
+.features li{
+margin-bottom:8px;
+color:#d0d0d8;
 }
 
-.pricelist .row{
+/* buttons */
+
+.buttons{
+margin-top:20px;
 display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 0;
-border-bottom:1px solid #eee;
-font-size:18px;
-}
-
-.pricelist .row:last-child{
-border:none;
+gap:15px;
 }
 
 button{
-background:linear-gradient(90deg,#6a5cff,#8f7bff);
-color:white;
+background: linear-gradient(145deg,#ffffff,#a8a8a8);
 border:none;
-padding:10px 18px;
-border-radius:8px;
+padding:12px 22px;
+border-radius:12px;
+font-weight:600;
 cursor:pointer;
-font-size:14px;
+transition:.2s;
 }
+
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 20px rgba(255,255,255,0.15);
+}
+
+/* price */
+
+.price-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 0;
+border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+.price{
+font-size:18px;
+font-weight:700;
+}
+
+/* download */
 
 .download{
 text-align:center;
 }
 
 .download button{
-padding:14px 35px;
+padding:16px 30px;
 font-size:16px;
 }
 
-.links{
-margin-top:15px;
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-}
+/* footer */
 
-.hero{
-margin-bottom:15px;
-}
-
-.hero p{
-color:#555;
-max-width:700px;
-margin-top:10px;
+.footer{
+text-align:center;
+margin-top:30px;
+opacity:.5;
 }
 
 </style>
-
 </head>
 
 <body>
@@ -110,35 +158,37 @@ margin-top:10px;
 <div class="container">
 
 <div class="hero">
-<h1>Nythera Client</h1>
-<div class="subtitle">Premium Minecraft Client 1.21.11</div>
+<img src="logo.png" class="logo">
 
-<p>
-Nythera Client — приватный премиум чит-клиент для Minecraft 1.21.11 с обходами популярных серверов,
-мощными PvP модулями и красивыми визуалами. Клиент постоянно обновляется и имеет стабильный loader.
-Подходит как для PvP, так и для комфортной игры с визуальными функциями.
-</p>
+<div>
+<div class="title">Nythera Client</div>
+<div class="subtitle">Premium Minecraft Client 1.21.11</div>
+</div>
 </div>
 
-<div class="section">
+
+<div class="card">
 <h2>О клиенте</h2>
 
-<div class="features">
-
-<div class="feature">• Обходы популярных серверов</div>
-<div class="feature">• PvP / Rage / Legit модули</div>
-<div class="feature">• AimAssist / TriggerBot</div>
-<div class="feature">• ESP / Chams / Visuals</div>
-<div class="feature">• ClickGUI интерфейс</div>
-<div class="feature">• Высокий FPS оптимизация</div>
-<div class="feature">• Частые обновления</div>
-<div class="feature">• Стабильный loader</div>
-<div class="feature">• Лицензионные ключи</div>
-<div class="feature">• Быстрая поддержка</div>
-
+<div class="desc">
+Nythera Client — приватный премиум чит-клиент для Minecraft 1.21.11 с обходами популярных серверов, мощными PvP модулями и красивыми визуалами.  
+Клиент регулярно обновляется, имеет стабильный loader и удобный ClickGUI интерфейс.
 </div>
 
-<div class="links">
+<ul class="features">
+<li>Обходы популярных серверов</li>
+<li>PvP / Rage / Legit модули</li>
+<li>AimAssist / TriggerBot</li>
+<li>ESP / Chams / Visuals</li>
+<li>ClickGUI интерфейс</li>
+<li>Высокий FPS</li>
+<li>Частые обновления</li>
+<li>Стабильный loader</li>
+<li>Лицензионные ключи</li>
+<li>Быстрая поддержка</li>
+</ul>
+
+<div class="buttons">
 <a href="https://t.me/NytheraClient" target="_blank">
 <button>Telegram канал</button>
 </a>
@@ -150,41 +200,46 @@ Nythera Client — приватный премиум чит-клиент для 
 
 </div>
 
-<div class="section pricelist">
+
+<div class="card">
 <h2>Прайс-лист</h2>
 
-<div class="row">
-<div>Месяц — 199₽</div>
-<a href="https://t.me/nythera_gate_bot" target="_blank">
+<div class="price-row">
+<div class="price">Месяц — 79₽</div>
+<a href="https://t.me/nythera_gate_bot">
 <button>Купить</button>
 </a>
 </div>
 
-<div class="row">
-<div>Год — 1899₽</div>
-<a href="https://t.me/nythera_gate_bot" target="_blank">
+<div class="price-row">
+<div class="price">Год — 289₽</div>
+<a href="https://t.me/nythera_gate_bot">
 <button>Купить</button>
 </a>
 </div>
 
-<div class="row">
-<div>Навсегда — 7899₽</div>
-<a href="https://t.me/nythera_gate_bot" target="_blank">
+<div class="price-row" style="border:none;">
+<div class="price">Навсегда — 599₽</div>
+<a href="https://t.me/nythera_gate_bot">
 <button>Купить</button>
 </a>
 </div>
 
 </div>
 
-<div class="section download">
+
+<div class="card download">
 <h2>Скачать</h2>
-
-<p>Скачайте официальный Nythera Loader для запуска клиента.</p>
 
 <a href="loader.exe">
 <button>Скачать Nythera Loader</button>
 </a>
 
+</div>
+
+
+<div class="footer">
+Nythera Client © 2026
 </div>
 
 </div>
