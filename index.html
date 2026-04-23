@@ -6,7 +6,7 @@
 
 <title>Nythera Client</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 
@@ -14,11 +14,11 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Inter, sans-serif;
+font-family:Inter,sans-serif;
 
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-text-rendering: optimizeLegibility;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;
+text-rendering:optimizeLegibility;
 }
 
 body{
@@ -27,9 +27,8 @@ color:white;
 }
 
 .container{
-width:100%;
-max-width:1400px;
-margin:0 auto;
+max-width:1300px;
+margin:auto;
 padding:40px;
 }
 
@@ -46,19 +45,20 @@ margin-bottom:60px;
 display:flex;
 align-items:center;
 gap:14px;
-font-size:26px;
+font-size:28px;
 font-weight:700;
 }
 
 .logo img{
-width:44px;
-height:44px;
-border-radius:12px;
+width:48px;
+height:48px;
+border-radius:14px;
+box-shadow:0 0 20px rgba(255,255,255,.15);
 }
 
 .nav{
 display:flex;
-gap:15px;
+gap:12px;
 }
 
 .btn{
@@ -70,114 +70,57 @@ font-weight:600;
 transition:.2s;
 }
 
+.btn-primary{
+background:linear-gradient(90deg,#ffffff,#dcdcdc);
+color:black;
+box-shadow:0 0 20px rgba(255,255,255,.15);
+}
+
 .btn-outline{
 background:transparent;
-border:1px solid #2a2a3a;
+border:1px solid #26273a;
 color:white;
-}
-
-.btn-outline:hover{
-background:#0c0d1a;
-}
-
-.btn-primary{
-background:linear-gradient(90deg,#7c5cff,#9f8cff);
-color:white;
-box-shadow:0 0 25px rgba(124,92,255,.35);
-}
-
-.btn-primary:hover{
-transform:translateY(-1px);
 }
 
 /* hero */
 
 .hero{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:40px;
-margin-bottom:60px;
-}
-
-.hero-text{
-max-width:750px;
+margin-bottom:40px;
 }
 
 .hero h1{
-font-size:56px;
-margin-bottom:20px;
-font-weight:800;
+font-size:64px;
+font-weight:900;
+margin-bottom:15px;
 }
 
 .hero p{
+font-size:18px;
 color:#9aa0b5;
+max-width:700px;
 line-height:1.6;
-font-size:17px;
-margin-bottom:25px;
-}
-
-.hero-buttons{
-display:flex;
-gap:15px;
 }
 
 /* cards */
 
 .card{
 background:linear-gradient(180deg,#070814,#05060f);
-border:1px solid #1b1c2b;
+border:1px solid #1c1d2e;
+padding:30px;
 border-radius:16px;
-padding:35px;
-margin-bottom:35px;
+margin-top:25px;
 }
 
 .card h2{
-font-size:30px;
-margin-bottom:20px;
-}
-
-/* about */
-
-.features{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-font-size:17px;
-color:#b6bbd6;
-}
-
-.features div{
-padding:6px 0;
+font-size:28px;
+margin-bottom:15px;
 }
 
 /* price */
 
-.pricing{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-}
-
-.price-card{
-flex:1;
-min-width:240px;
-background:#070814;
-border:1px solid #1c1d2e;
-padding:25px;
-border-radius:14px;
-}
-
-.price-card h3{
-font-size:22px;
-margin-bottom:10px;
-}
-
 .price{
-font-size:36px;
-font-weight:700;
-margin-bottom:15px;
-color:#a58cff;
+font-size:22px;
+margin:6px 0;
 }
 
 /* popup */
@@ -197,7 +140,7 @@ z-index:100;
 
 .popup-content{
 background:#05060f;
-padding:35px;
+padding:30px;
 border-radius:14px;
 width:420px;
 border:1px solid #1c1d2e;
@@ -211,17 +154,17 @@ font-size:22px;
 .input{
 width:100%;
 padding:14px;
-margin-bottom:12px;
+margin-bottom:10px;
 background:#02030a;
 border:1px solid #1c1d2e;
 border-radius:8px;
 color:white;
+font-size:15px;
 }
 
-.buy-buttons{
-display:flex;
-gap:10px;
-margin-top:15px;
+.desc{
+color:#9aa0b5;
+line-height:1.7;
 }
 
 </style>
@@ -240,100 +183,57 @@ Nythera
 
 <div class="nav">
 <button class="btn btn-outline" onclick="openLogin()">Войти</button>
-<button class="btn btn-primary" onclick="openBuy()">Купить</button>
+<button class="btn btn-primary" onclick="openActivate()">Активировать</button>
 </div>
 
 </header>
 
 <section class="hero">
 
-<div class="hero-text">
-
 <h1>Nythera Client</h1>
 
 <p>
 Nythera Client — приватный премиум клиент для Minecraft Fabric.
-Включает PvP модули, Rage и Legit функции, визуальные улучшения,
-оптимизацию FPS и стабильный loader. Подходит для серверов с
-античитами и комфортной игры.
+Включает обходы популярных серверов, PvP модули, визуалы,
+оптимизацию FPS и стабильную работу.
 </p>
-
-<div class="hero-buttons">
-<button class="btn btn-primary" onclick="openActivate()">Активировать ключ</button>
-<button class="btn btn-outline" onclick="openBuy()">Купить</button>
-</div>
-
-</div>
 
 </section>
 
-<div class="card">
 
+<div class="card">
 <h2>О клиенте</h2>
 
-<div class="features">
-<div>• Обходы популярных серверов</div>
-<div>• PvP / Rage / Legit модули</div>
-<div>• AimAssist / TriggerBot</div>
-<div>• Красивые визуалы интерфейса</div>
-<div>• ClickGUI интерфейс</div>
-<div>• Высокий FPS оптимизация</div>
-<div>• Частые обновления</div>
-<div>• Привязка HWID</div>
+<div class="desc">
+• Обходы популярных серверов<br>
+• PvP / Rage / Legit функции<br>
+• Красивые визуалы<br>
+• ClickGUI интерфейс<br>
+• Оптимизация FPS<br>
+• Частые обновления<br>
+• HWID привязка
 </div>
 
 </div>
+
 
 <div class="card">
-
 <h2>Прайс</h2>
 
-<div class="pricing">
+<div class="price">Месяц — 79₽</div>
+<div class="price">Год — 289₽</div>
+<div class="price">Навсегда — 599₽</div>
 
-<div class="price-card">
-<h3>Месяц</h3>
-<div class="price">79₽</div>
-<button class="btn btn-primary" onclick="openBuy()">Купить</button>
-</div>
+<br>
 
-<div class="price-card">
-<h3>Год</h3>
-<div class="price">289₽</div>
-<button class="btn btn-primary" onclick="openBuy()">Купить</button>
-</div>
-
-<div class="price-card">
-<h3>Навсегда</h3>
-<div class="price">599₽</div>
-<button class="btn btn-primary" onclick="openBuy()">Купить</button>
-</div>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<h2>После покупки вы получите</h2>
-
-<p style="color:#9aa0b5; line-height:1.7; font-size:17px;">
-• Лицензионный ключ доступа<br>
-• Доступ к Nythera Loader<br>
-• Все PvP / Rage / Legit функции<br>
-• Красивые визуалы интерфейса<br>
-• Частые обновления клиента<br>
-• Привязку HWID к аккаунту<br>
-• Поддержку пользователей
-</p>
+<button class="btn btn-primary" onclick="buyTG()">Купить</button>
 
 </div>
 
 </div>
 
 
-<!-- login -->
-
-<div class="popup" id="loginPopup">
+<div class="popup" id="login">
 <div class="popup-content">
 <h3>Войти</h3>
 <input class="input" placeholder="Username">
@@ -342,48 +242,34 @@ Nythera Client — приватный премиум клиент для Minecra
 </div>
 </div>
 
-<!-- activate -->
 
-<div class="popup" id="activatePopup">
+<div class="popup" id="activate">
 <div class="popup-content">
 <h3>Активация ключа</h3>
-<input class="input" placeholder="Введите ключ">
-<input class="input" placeholder="Username">
-<input class="input" placeholder="Password">
-<button class="btn btn-primary" style="width:100%">Активировать</button>
+<input class="input" id="keyInput" placeholder="Nythera-XXXXXXXXXXXX-7d">
+<button class="btn btn-primary" style="width:100%" onclick="activate()">Активировать</button>
 </div>
 </div>
 
-<!-- buy -->
-
-<div class="popup" id="buyPopup">
-<div class="popup-content">
-<h3>Покупка</h3>
-
-<div class="buy-buttons">
-<button class="btn btn-primary" onclick="buyTG()">Telegram</button>
-<button class="btn btn-outline" onclick="buySite()">На сайте</button>
-</div>
-
-</div>
-</div>
 
 <script>
 
+const VALID_KEYS = [
+"Nythera-AB92KD82LAQP-7d",
+"Nythera-XZ92LL29QAWE-1m",
+"Nythera-PL92KD82LAQW-1y"
+]
+
 function openLogin(){
-document.getElementById("loginPopup").style.display="flex"
+document.getElementById("login").style.display="flex"
 }
 
 function openActivate(){
-document.getElementById("activatePopup").style.display="flex"
-}
-
-function openBuy(){
-document.getElementById("buyPopup").style.display="flex"
+document.getElementById("activate").style.display="flex"
 }
 
 window.onclick=function(e){
-if(e.target.classList.contains('popup'))
+if(e.target.classList.contains("popup"))
 e.target.style.display="none"
 }
 
@@ -391,11 +277,15 @@ function buyTG(){
 window.location.href="https://t.me/nythera_gate_bot"
 }
 
-function buySite(){
+function activate(){
 
-let key="NYTHERA-"+Math.random().toString(36).substring(2,10).toUpperCase()
+let key=document.getElementById("keyInput").value
 
-alert("Ваш ключ: "+key)
+if(VALID_KEYS.includes(key)){
+alert("Ключ активирован")
+}else{
+alert("Ключ недействителен")
+}
 
 }
 
