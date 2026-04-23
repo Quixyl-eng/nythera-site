@@ -5,21 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nythera Client</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html,body{
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-text-rendering: optimizeLegibility;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
 font-family:Inter,sans-serif;
@@ -32,8 +21,6 @@ max-width:1100px;
 margin:auto;
 padding:40px 20px;
 }
-
-/* NAV */
 
 nav{
 display:flex;
@@ -51,126 +38,51 @@ font-weight:700;
 }
 
 .logo img{
-width:46px;
-height:46px;
+width:44px;
 border-radius:12px;
-}
-
-.telegram{
-text-decoration:none;
-border:1px solid rgba(255,255,255,0.15);
-padding:10px 18px;
-border-radius:12px;
-color:white;
-display:inline-block;
-
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-}
-
-.hero{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:40px;
-margin-bottom:40px;
-}
-
-.hero h1{
-font-size:60px;
-margin-bottom:15px;
-font-weight:800;
-}
-
-.hero p{
-color:#9aa0aa;
-line-height:1.6;
-margin-bottom:20px;
-max-width:520px;
 }
 
 .btn{
-padding:12px 22px;
-border-radius:12px;
-border:none;
-font-weight:600;
 background:white;
 color:black;
-cursor:pointer;
-
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-}
-
-.hero img{
-width:260px;
-border-radius:16px;
+padding:12px 20px;
+border-radius:10px;
+text-decoration:none;
+font-weight:600;
+display:inline-block;
 }
 
 .card{
 background:#08080c;
-border:1px solid rgba(255,255,255,0.06);
+border:1px solid rgba(255,255,255,.06);
+padding:25px;
 border-radius:16px;
-padding:26px;
-margin-bottom:25px;
+margin-bottom:20px;
 }
 
-.card h2{
-margin-bottom:18px;
+input{
+width:100%;
+padding:12px;
+background:#050507;
+border:1px solid rgba(255,255,255,.1);
+border-radius:10px;
+color:white;
+margin-bottom:10px;
 }
 
-.features{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px 30px;
+.status{
+margin-top:10px;
 color:#9aa0aa;
 }
 
-.prices{
-display:flex;
-gap:15px;
+.download{
 margin-top:15px;
-}
-
-.price{
-flex:1;
-padding:20px;
-border-radius:12px;
-border:1px solid rgba(255,255,255,0.08);
-background:#06060a;
-}
-
-.value{
-font-size:30px;
-font-weight:700;
-margin:8px 0 14px;
+display:none;
 }
 
 .buy{
-width:100%;
-padding:10px;
-border:none;
-border-radius:10px;
-background:white;
-font-weight:600;
-cursor:pointer;
-
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-}
-
-.after-buy{
-margin-top:18px;
-color:#9aa0aa;
-line-height:1.6;
-font-size:14px;
-}
-
-footer{
-margin-top:30px;
-color:#666;
-text-align:center;
-font-size:14px;
+margin-top:10px;
+display:inline-block;
 }
 </style>
 </head>
@@ -185,78 +97,61 @@ font-size:14px;
 NYTHERA
 </div>
 
-<a class="telegram" href="https://t.me/nythera_gate_bot" target="_blank">
-Telegram
-</a>
+<a class="btn" href="https://t.me/nythera_gate_bot">Купить</a>
 </nav>
 
-<div class="hero">
-<div>
-<h1>Nythera Client</h1>
-
-<p>
-Nythera Client — приватный премиум чит-клиент для Minecraft 1.21.11
-с обходами популярных серверов, мощными PvP модулями и стабильной работой.
-</p>
-
-<button class="btn">Скачать Loader</button>
-</div>
-
-<img src="logo.png">
-</div>
 
 <div class="card">
-<h2>О клиенте</h2>
+<h2>Активация ключа</h2>
 
-<div class="features">
-<div>• Обходы популярных серверов</div>
-<div>• PvP / Rage / Legit модули</div>
-<div>• AimAssist / TriggerBot</div>
-<div>• ClickGUI интерфейс</div>
-<div>• Высокий FPS оптимизация</div>
-<div>• Частые обновления</div>
-<div>• Стабильный loader</div>
-<div>• Быстрая поддержка</div>
+<input id="key" placeholder="Введите ключ">
+<input id="user" placeholder="Username">
+<input id="pass" type="password" placeholder="Password">
+
+<button class="btn" onclick="activate()">Активировать</button>
+
+<div class="status" id="status"></div>
+
+<div class="download" id="download">
+<a class="btn" href="NytheraLoader.exe">Скачать Loader</a>
 </div>
 
 </div>
+
 
 <div class="card">
-<h2>Прайс-лист</h2>
+<h2>Прайс</h2>
 
-<div class="prices">
+<div>Месяц — 79₽</div>
+<div>Год — 289₽</div>
+<div>Навсегда — 599₽</div>
 
-<div class="price">
-<h3>Месяц</h3>
-<div class="value">79₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="price">
-<h3>Год</h3>
-<div class="value">289₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="price">
-<h3>Навсегда</h3>
-<div class="value">599₽</div>
-<button class="buy">Купить</button>
-</div>
+<a class="btn buy" href="https://t.me/nythera_gate_bot">
+Купить через CryptoBot
+</a>
 
 </div>
 
-<div class="after-buy">
-После покупки вы получите лицензионный ключ Nythera Client, доступ к loader,
-полный функционал клиента, регулярные обновления, обходы популярных серверов,
-поддержку через Telegram и возможность использовать клиент без ограничений.
-</div>
 
-</div>
+<script>
+function activate(){
 
-<footer>
-Nythera Client © 2026
-</footer>
+let key=document.getElementById("key").value
+let user=document.getElementById("user").value
+let pass=document.getElementById("pass").value
+
+if(!key||!user||!pass){
+document.getElementById("status").innerText="Заполните поля"
+return
+}
+
+/* пока демо логика */
+
+document.getElementById("status").innerText="Ключ активирован"
+document.getElementById("download").style.display="block"
+
+}
+</script>
 
 </div>
 
