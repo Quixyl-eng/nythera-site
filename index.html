@@ -8,10 +8,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+}
+
+html,body{
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+text-rendering: optimizeLegibility;
 }
 
 body{
@@ -55,9 +62,11 @@ border:1px solid rgba(255,255,255,0.15);
 padding:10px 18px;
 border-radius:12px;
 color:white;
-}
+display:inline-block;
 
-/* HERO */
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
 
 .hero{
 display:flex;
@@ -70,6 +79,7 @@ margin-bottom:40px;
 .hero h1{
 font-size:60px;
 margin-bottom:15px;
+font-weight:800;
 }
 
 .hero p{
@@ -87,14 +97,15 @@ font-weight:600;
 background:white;
 color:black;
 cursor:pointer;
+
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
 }
 
 .hero img{
 width:260px;
 border-radius:16px;
 }
-
-/* CARD */
 
 .card{
 background:#08080c;
@@ -108,16 +119,12 @@ margin-bottom:25px;
 margin-bottom:18px;
 }
 
-/* FEATURES */
-
 .features{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:12px 30px;
 color:#9aa0aa;
 }
-
-/* PRICE */
 
 .prices{
 display:flex;
@@ -147,6 +154,9 @@ border-radius:10px;
 background:white;
 font-weight:600;
 cursor:pointer;
+
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
 }
 
 .after-buy{
@@ -155,8 +165,6 @@ color:#9aa0aa;
 line-height:1.6;
 font-size:14px;
 }
-
-/* FOOTER */
 
 footer{
 margin-top:30px;
@@ -197,7 +205,6 @@ Nythera Client — приватный премиум чит-клиент для 
 <img src="logo.png">
 </div>
 
-
 <div class="card">
 <h2>О клиенте</h2>
 
@@ -213,7 +220,6 @@ Nythera Client — приватный премиум чит-клиент для 
 </div>
 
 </div>
-
 
 <div class="card">
 <h2>Прайс-лист</h2>
