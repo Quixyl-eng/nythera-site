@@ -1,89 +1,306 @@
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nythera Client</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
 
-body{
-background:#06070b;
-color:#e8e8f0;
-font-family: Inter, Arial, sans-serif;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
 }
 
-/* карточки стекло */
+body{
+background:#05060a;
+color:white;
+}
+
+/* NAVBAR */
+
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+background:rgba(10,10,20,0.6);
+backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(120,80,255,.2);
+}
+
+.logo{
+font-weight:800;
+font-size:20px;
+letter-spacing:1px;
+}
+
+.nav-right{
+display:flex;
+gap:15px;
+}
+
+.btn{
+padding:10px 18px;
+border-radius:10px;
+border:none;
+cursor:pointer;
+font-weight:600;
+}
+
+.btn-primary{
+background:linear-gradient(90deg,#6f5bff,#9c6bff);
+color:white;
+}
+
+.btn-outline{
+background:transparent;
+border:1px solid rgba(140,100,255,.4);
+color:white;
+}
+
+/* HERO */
+
+.hero{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:80px 60px;
+}
+
+.hero-text{
+max-width:600px;
+}
+
+.hero-title{
+font-size:80px;
+font-weight:900;
+line-height:0.9;
+}
+
+.hero-title span{
+color:#8b6cff;
+}
+
+.hero-desc{
+margin-top:20px;
+color:#b7b7d4;
+line-height:1.6;
+}
+
+.hero-buttons{
+margin-top:30px;
+display:flex;
+gap:15px;
+}
+
+/* CARD */
+
+.section{
+padding:40px 60px;
+}
+
 .card{
-background: rgba(20,20,35,0.55);
-backdrop-filter: blur(18px);
-border-radius:18px;
+background:rgba(15,15,25,.7);
+border:1px solid rgba(140,100,255,.15);
+border-radius:20px;
 padding:30px;
 margin-top:20px;
-border:1px solid rgba(140,100,255,0.15);
-box-shadow:
-0 0 0 1px rgba(140,100,255,0.05),
-0 20px 60px rgba(0,0,0,0.6);
 }
 
-/* заголовок */
-.title{
-font-size:64px;
+/* FEATURES */
+
+.features{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+margin-top:20px;
+}
+
+.feature{
+background:rgba(255,255,255,.02);
+padding:20px;
+border-radius:15px;
+border:1px solid rgba(140,100,255,.1);
+}
+
+/* PRICE */
+
+.price-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+margin-top:20px;
+}
+
+.price-card{
+background:rgba(255,255,255,.02);
+padding:25px;
+border-radius:20px;
+border:1px solid rgba(140,100,255,.2);
+}
+
+.price{
+font-size:40px;
 font-weight:800;
-background: linear-gradient(90deg,#ffffff,#9f7bff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+color:#8b6cff;
+margin:10px 0;
 }
 
-/* подзаголовок */
-.subtitle{
-color:#9c9cb3;
+/* DOWNLOAD */
+
+.download{
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
-/* кнопки */
-button{
-background: linear-gradient(90deg,#7a5cff,#9c6bff);
-border:none;
-color:white;
-padding:12px 22px;
-border-radius:12px;
-font-weight:600;
-cursor:pointer;
-transition:.2s;
-}
+/* FOOTER */
 
-button:hover{
-transform:translateY(-2px);
-box-shadow:0 10px 25px rgba(130,90,255,0.4);
-}
-
-/* прайс блоки */
-.price-row{
-border-bottom:1px solid rgba(140,100,255,0.15);
-padding:18px 0;
-}
-
-/* скачать кнопка */
-.download button{
-background: linear-gradient(90deg,#6c4dff,#a855ff);
-padding:16px 28px;
-font-size:16px;
-}
-
-/* текст описание */
-.desc{
-color:#b8b8c9;
-}
-
-/* список */
-.features li{
-color:#cfcfe6;
-}
-
-/* футер */
 .footer{
-opacity:.4;
-}
-
-/* glow */
-.card:hover{
-border:1px solid rgba(160,120,255,0.35);
-box-shadow:
-0 0 30px rgba(120,80,255,0.15),
-0 20px 60px rgba(0,0,0,0.7);
+text-align:center;
+padding:30px;
+opacity:.5;
 }
 
 </style>
+</head>
+
+<body>
+
+<div class="nav">
+<div class="logo">NYTHERA</div>
+
+<div class="nav-right">
+<a href="https://t.me/NytheraClient">
+<button class="btn btn-outline">Telegram</button>
+</a>
+
+<a href="https://t.me/nythera_gate_bot">
+<button class="btn btn-primary">Купить ключ</button>
+</a>
+</div>
+</div>
+
+
+<div class="hero">
+
+<div class="hero-text">
+
+<div class="hero-title">
+NYTHERA<br>
+<span>CLIENT</span>
+</div>
+
+<div class="hero-desc">
+Nythera Client — приватный премиум чит-клиент для Minecraft 1.21.11  
+с обходами популярных серверов, мощными PvP модулями и красивыми визуалами.
+</div>
+
+<div class="hero-buttons">
+<a href="loader.exe">
+<button class="btn btn-primary">Скачать Loader</button>
+</a>
+
+<a href="#price">
+<button class="btn btn-outline">Смотреть функционал</button>
+</a>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="section">
+
+<div class="card">
+<h2>О клиенте</h2>
+
+<div class="features">
+
+<div class="feature">Обходы серверов</div>
+<div class="feature">PvP / Rage / Legit</div>
+<div class="feature">AimAssist / TriggerBot</div>
+<div class="feature">ESP / Visuals</div>
+<div class="feature">ClickGUI</div>
+<div class="feature">Высокий FPS</div>
+<div class="feature">Частые обновления</div>
+<div class="feature">Поддержка</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="section" id="price">
+
+<div class="card">
+<h2>Прайс-лист</h2>
+
+<div class="price-grid">
+
+<div class="price-card">
+<h3>Месяц</h3>
+<div class="price">79₽</div>
+<a href="https://t.me/nythera_gate_bot">
+<button class="btn btn-primary">Купить</button>
+</a>
+</div>
+
+<div class="price-card">
+<h3>Год</h3>
+<div class="price">289₽</div>
+<a href="https://t.me/nythera_gate_bot">
+<button class="btn btn-primary">Купить</button>
+</a>
+</div>
+
+<div class="price-card">
+<h3>Навсегда</h3>
+<div class="price">599₽</div>
+<a href="https://t.me/nythera_gate_bot">
+<button class="btn btn-primary">Купить</button>
+</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="section">
+
+<div class="card download">
+
+<div>
+<h2>Скачать Loader</h2>
+<div>Скачайте официальный Nythera Loader</div>
+</div>
+
+<a href="loader.exe">
+<button class="btn btn-primary">Скачать Nythera Loader</button>
+</a>
+
+</div>
+
+</div>
+
+
+<div class="footer">
+Nythera Client © 2026
+</div>
+
+</body>
+</html>
+```
