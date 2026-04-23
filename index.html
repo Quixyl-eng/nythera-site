@@ -5,261 +5,264 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nythera Client</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Inter,sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
-background:#05060a;
+font-family:Segoe UI,Arial,sans-serif;
+background:#07070b;
 color:white;
 }
 
 .container{
-max-width:1100px;
+max-width:1150px;
 margin:auto;
 padding:40px 20px;
 }
 
-/* hero */
+/* NAV */
 
-.hero{
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 40px;
+border-bottom:1px solid #151525;
+background:#07070b;
+}
+
+.logo-wrap{
 display:flex;
 align-items:center;
-justify-content:space-between;
-gap:40px;
-margin-bottom:40px;
-}
-
-.hero-text h1{
-font-size:64px;
-font-weight:800;
-letter-spacing:2px;
-}
-
-.hero-text span{
-color:#9b6cff;
-}
-
-.hero-text p{
-margin-top:15px;
-color:#aaa;
-line-height:1.6;
-max-width:520px;
-font-size:16px;
+gap:14px;
 }
 
 .logo{
-width:140px;
+height:54px;
+filter:drop-shadow(0 0 14px rgba(170,130,255,.35));
 }
 
-/* buttons */
+.brand{
+font-size:28px;
+font-weight:700;
+letter-spacing:1px;
+background:linear-gradient(90deg,#fff,#a970ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
-.buttons{
-margin-top:25px;
+/* HERO */
+
+.hero{
 display:flex;
-gap:12px;
+justify-content:space-between;
+align-items:center;
+gap:40px;
+padding:60px 0;
+}
+
+.title{
+font-size:60px;
+font-weight:800;
+line-height:1.1;
+margin-bottom:15px;
+}
+
+.subtitle{
+color:#b8b8d6;
+line-height:1.6;
+margin-bottom:25px;
 }
 
 .btn{
-padding:13px 22px;
+display:inline-block;
+padding:14px 26px;
 border-radius:12px;
+background:linear-gradient(135deg,#a970ff,#7c4dff);
+color:white;
 text-decoration:none;
 font-weight:600;
-display:inline-block;
+box-shadow:0 10px 35px rgba(140,100,255,.25);
+transition:.2s;
 }
 
-.btn-primary{
-background:linear-gradient(135deg,#7c4dff,#b47cff);
-color:white;
+.btn:hover{
+transform:translateY(-2px);
+box-shadow:0 20px 40px rgba(140,100,255,.35);
 }
 
 .btn-outline{
-border:1px solid #7c4dff;
-color:#b47cff;
+background:transparent;
+border:1px solid #27273a;
+margin-left:10px;
 }
 
-/* section */
+.hero img{
+width:340px;
+}
 
-.section{
-background:#0b0d14;
+/* CARD */
+
+.card{
+background:rgba(15,15,25,.75);
+border:1px solid #1a1a2b;
 border-radius:18px;
-padding:25px;
-margin-bottom:20px;
+padding:30px;
+margin-top:30px;
 }
 
-.section h2{
-margin-bottom:20px;
+.section-title{
 font-size:22px;
+margin-bottom:18px;
 }
-
-/* features */
 
 .features{
 display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
+grid-template-columns:1fr 1fr;
+gap:10px;
+color:#cfcff5;
 }
 
-.feature{
-background:#0f111a;
-padding:15px;
-border-radius:12px;
-color:#bbb;
-}
+/* PRICE */
 
-/* pricing */
-
-.pricing{
+.price-grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:15px;
+gap:20px;
 }
 
-.card{
-background:#0f111a;
-padding:20px;
-border-radius:14px;
+.price-card{
+background:#0b0b14;
+border:1px solid #1a1a2b;
+border-radius:18px;
+padding:25px;
 text-align:center;
 }
 
-.price{
-font-size:30px;
-font-weight:700;
-color:#9b6cff;
-margin:10px 0;
+.price-title{
+color:#b8b8d6;
+margin-bottom:10px;
 }
 
-/* download */
+.price{
+font-size:34px;
+font-weight:700;
+margin-bottom:15px;
+background:linear-gradient(90deg,#fff,#a970ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
 .download{
 display:flex;
 justify-content:space-between;
 align-items:center;
-gap:20px;
 }
 
 .footer{
 text-align:center;
-color:#666;
-margin-top:20px;
-}
-
-@media(max-width:900px){
-
-.hero{
-flex-direction:column;
-text-align:center;
-}
-
-.features{
-grid-template-columns:1fr;
-}
-
-.pricing{
-grid-template-columns:1fr;
-}
-
-.download{
-flex-direction:column;
-text-align:center;
-}
-
+color:#8c8ca8;
+margin-top:40px;
+font-size:14px;
 }
 </style>
 </head>
 
 <body>
 
+<div class="nav">
+<div class="logo-wrap">
+<img src="logo.png" class="logo">
+<div class="brand">NYTHERA</div>
+</div>
+
+<div>
+<a class="btn-outline btn" href="https://t.me/NytheraClient">Telegram</a>
+</div>
+</div>
+
 <div class="container">
 
 <div class="hero">
 
-<div class="hero-text">
-<h1>NYTHERA <span>CLIENT</span></h1>
+<div>
+<div class="title">Nythera Client</div>
 
-<p>
-Nythera Client — приватный премиум клиент для Minecraft 1.21.11
-с обходами популярных серверов, PvP модулями и стабильным loader.
-Регулярные обновления и быстрая поддержка.
-</p>
-
-<div class="buttons">
-<a href="loader.exe" class="btn btn-primary">Скачать Loader</a>
-<a href="https://t.me/NytheraClient" class="btn btn-outline">Telegram</a>
+<div class="subtitle">
+Nythera Client — приватный премиум чит-клиент для Minecraft 1.21.11 
+с обходами популярных серверов, мощными PvP модулями и современными визуалами.
+Клиент оптимизирован для стабильной работы, имеет удобный ClickGUI интерфейс 
+и регулярные обновления. Подходит как для PvP режимов, так и для комфортной игры.
 </div>
 
-</div>
-
-<img src="logo.png" class="logo">
+<a class="btn" href="#">Скачать Loader</a>
+<a class="btn btn-outline" href="https://t.me/NytheraClient">Telegram</a>
 
 </div>
 
-<div class="section">
-<h2>О клиенте</h2>
+<img src="logo.png">
+
+</div>
+
+<div class="card">
+<div class="section-title">О клиенте</div>
 
 <div class="features">
-<div class="feature">Обходы популярных серверов</div>
-<div class="feature">PvP / Rage / Legit модули</div>
-<div class="feature">AimAssist / TriggerBot</div>
-<div class="feature">ClickGUI интерфейс</div>
-<div class="feature">Высокий FPS оптимизация</div>
-<div class="feature">Частые обновления</div>
+<div>• Обходы популярных серверов</div>
+<div>• PvP / Rage / Legit модули</div>
+<div>• AimAssist / TriggerBot</div>
+<div>• Красивые визуалы интерфейса</div>
+<div>• ClickGUI интерфейс</div>
+<div>• Высокий FPS оптимизация</div>
+<div>• Частые обновления</div>
+<div>• Стабильный loader</div>
+<div>• Лицензионные ключи</div>
+<div>• Быстрая поддержка</div>
 </div>
-
 </div>
-
-<div class="section">
-<h2>Прайс-лист</h2>
-
-<div class="pricing">
 
 <div class="card">
-<h3>Месяц</h3>
+<div class="section-title">Прайс-лист</div>
+
+<div class="price-grid">
+
+<div class="price-card">
+<div class="price-title">Месяц</div>
 <div class="price">79₽</div>
-<a href="https://t.me/nythera_gate_bot" class="btn btn-primary">Купить</a>
+<a class="btn" href="https://t.me/nythera_gate_bot">Купить</a>
 </div>
 
-<div class="card">
-<h3>Год</h3>
+<div class="price-card">
+<div class="price-title">Год</div>
 <div class="price">289₽</div>
-<a href="https://t.me/nythera_gate_bot" class="btn btn-primary">Купить</a>
+<a class="btn" href="https://t.me/nythera_gate_bot">Купить</a>
 </div>
 
-<div class="card">
-<h3>Навсегда</h3>
+<div class="price-card">
+<div class="price-title">Навсегда</div>
 <div class="price">599₽</div>
-<a href="https://t.me/nythera_gate_bot" class="btn btn-primary">Купить</a>
+<a class="btn" href="https://t.me/nythera_gate_bot">Купить</a>
 </div>
 
 </div>
 </div>
 
-<div class="section download">
-
+<div class="card download">
 <div>
-<h2>Скачать Loader</h2>
-<p style="color:#888;margin-top:5px;">
-Скачайте официальный Nythera loader
-</p>
+<div class="section-title">Скачать Nythera Loader</div>
+<div style="color:#a0a0c0">
+Скачайте официальный loader Nythera Client и начните использовать клиент уже сейчас.
+Безопасно • Быстро • Актуально
+</div>
 </div>
 
-<a href="loader.exe" class="btn btn-primary">
-Скачать
-</a>
-
+<a class="btn" href="#">Скачать</a>
 </div>
 
 <div class="footer">
-Nythera Client © 2026
+© 2026 Nythera Client — Telegram: t.me/NytheraClient
 </div>
 
 </div>
-
 </body>
 </html>
