@@ -32,8 +32,6 @@ margin:auto;
 padding:40px;
 }
 
-/* header */
-
 header{
 display:flex;
 justify-content:space-between;
@@ -51,9 +49,7 @@ font-weight:700;
 
 .logo img{
 width:48px;
-height:48px;
 border-radius:14px;
-box-shadow:0 0 20px rgba(255,255,255,.15);
 }
 
 .nav{
@@ -67,25 +63,17 @@ border-radius:10px;
 border:none;
 cursor:pointer;
 font-weight:600;
-transition:.2s;
 }
 
 .btn-primary{
-background:linear-gradient(90deg,#ffffff,#dcdcdc);
+background:white;
 color:black;
-box-shadow:0 0 20px rgba(255,255,255,.15);
 }
 
 .btn-outline{
 background:transparent;
 border:1px solid #26273a;
 color:white;
-}
-
-/* hero */
-
-.hero{
-margin-bottom:40px;
 }
 
 .hero h1{
@@ -101,29 +89,18 @@ max-width:700px;
 line-height:1.6;
 }
 
-/* cards */
-
 .card{
-background:linear-gradient(180deg,#070814,#05060f);
+background:#070814;
 border:1px solid #1c1d2e;
 padding:30px;
 border-radius:16px;
 margin-top:25px;
 }
 
-.card h2{
-font-size:28px;
-margin-bottom:15px;
-}
-
-/* price */
-
 .price{
 font-size:22px;
-margin:6px 0;
+margin:8px 0;
 }
-
-/* popup */
 
 .popup{
 position:fixed;
@@ -135,7 +112,6 @@ background:rgba(0,0,0,.8);
 display:none;
 justify-content:center;
 align-items:center;
-z-index:100;
 }
 
 .popup-content{
@@ -146,11 +122,6 @@ width:420px;
 border:1px solid #1c1d2e;
 }
 
-.popup h3{
-margin-bottom:15px;
-font-size:22px;
-}
-
 .input{
 width:100%;
 padding:14px;
@@ -159,12 +130,6 @@ background:#02030a;
 border:1px solid #1c1d2e;
 border-radius:8px;
 color:white;
-font-size:15px;
-}
-
-.desc{
-color:#9aa0b5;
-line-height:1.7;
 }
 
 </style>
@@ -175,7 +140,6 @@ line-height:1.7;
 <div class="container">
 
 <header>
-
 <div class="logo">
 <img src="logo.png">
 Nythera
@@ -183,109 +147,136 @@ Nythera
 
 <div class="nav">
 <button class="btn btn-outline" onclick="openLogin()">Войти</button>
-<button class="btn btn-primary" onclick="openActivate()">Активировать</button>
+<button class="btn btn-primary" onclick="openBuy()">Купить</button>
 </div>
-
 </header>
 
-<section class="hero">
-
+<div class="hero">
 <h1>Nythera Client</h1>
-
-<p>
-Nythera Client — приватный премиум клиент для Minecraft Fabric.
-Включает обходы популярных серверов, PvP модули, визуалы,
-оптимизацию FPS и стабильную работу.
-</p>
-
-</section>
-
-
-<div class="card">
-<h2>О клиенте</h2>
-
-<div class="desc">
-• Обходы популярных серверов<br>
-• PvP / Rage / Legit функции<br>
-• Красивые визуалы<br>
-• ClickGUI интерфейс<br>
-• Оптимизация FPS<br>
-• Частые обновления<br>
-• HWID привязка
+<p>Приватный premium клиент для Minecraft Fabric с обходами и визуалами.</p>
 </div>
-
-</div>
-
 
 <div class="card">
 <h2>Прайс</h2>
 
 <div class="price">Месяц — 79₽</div>
+<button class="btn btn-primary" onclick="buyRole('month')">Купить</button>
+
+<br><br>
+
 <div class="price">Год — 289₽</div>
+<button class="btn btn-primary" onclick="buyRole('year')">Купить</button>
+
+<br><br>
+
 <div class="price">Навсегда — 599₽</div>
+<button class="btn btn-primary" onclick="buyRole('lifetime')">Купить</button>
 
-<br>
+<br><br>
 
-<button class="btn btn-primary" onclick="buyTG()">Купить</button>
+<button class="btn btn-outline" onclick="openActivate()">Активировать ключ</button>
 
 </div>
 
 </div>
-
 
 <div class="popup" id="login">
 <div class="popup-content">
-<h3>Войти</h3>
-<input class="input" placeholder="Username">
-<input class="input" placeholder="Password">
-<button class="btn btn-primary" style="width:100%">Войти</button>
+<h3>Войти / Регистрация</h3>
+<input id="username" class="input" placeholder="Username">
+<input id="password" class="input" placeholder="Password">
+<button class="btn btn-primary" style="width:100%" onclick="login()">Войти</button>
 </div>
 </div>
-
 
 <div class="popup" id="activate">
 <div class="popup-content">
 <h3>Активация ключа</h3>
-<input class="input" id="keyInput" placeholder="Nythera-XXXXXXXXXXXX-7d">
+<input id="keyInput" class="input" placeholder="Nythera-XXXX-7d">
 <button class="btn btn-primary" style="width:100%" onclick="activate()">Активировать</button>
 </div>
 </div>
 
-
 <script>
 
-const VALID_KEYS = [
-"Nythera-AB92KD82LAQP-7d",
-"Nythera-XZ92LL29QAWE-1m",
-"Nythera-PL92KD82LAQW-1y"
-]
+const VALID_KEYS = {
+"Nythera-ABCD123456-7d":"month",
+"Nythera-ZXCV987654-1m":"month",
+"Nythera-QWER123123-1y":"year"
+}
+
+let currentUser = null
 
 function openLogin(){
 document.getElementById("login").style.display="flex"
+}
+
+function openBuy(){
+alert("Сначала войдите")
+openLogin()
 }
 
 function openActivate(){
 document.getElementById("activate").style.display="flex"
 }
 
-window.onclick=function(e){
-if(e.target.classList.contains("popup"))
-e.target.style.display="none"
+function login(){
+
+let user=document.getElementById("username").value
+let pass=document.getElementById("password").value
+
+if(!localStorage.getItem(user)){
+localStorage.setItem(user,JSON.stringify({
+password:pass,
+role:"user"
+}))
 }
 
-function buyTG(){
-window.location.href="https://t.me/nythera_gate_bot"
+let data=JSON.parse(localStorage.getItem(user))
+
+if(data.password===pass){
+currentUser=user
+alert("Вход выполнен")
+}else{
+alert("Неверный пароль")
+}
+
+}
+
+function buyRole(role){
+
+if(!currentUser){
+openLogin()
+return
+}
+
+let data=JSON.parse(localStorage.getItem(currentUser))
+
+data.role=role
+
+localStorage.setItem(currentUser,JSON.stringify(data))
+
+alert("Выдана роль: "+role)
+
 }
 
 function activate(){
 
 let key=document.getElementById("keyInput").value
 
-if(VALID_KEYS.includes(key)){
-alert("Ключ активирован")
-}else{
+if(!VALID_KEYS[key]){
 alert("Ключ недействителен")
+return
 }
+
+let role=VALID_KEYS[key]
+
+let data=JSON.parse(localStorage.getItem(currentUser))
+data.role=role
+
+localStorage.setItem(currentUser,JSON.stringify(data))
+
+alert("Ключ активирован. Роль: "+role)
 
 }
 
